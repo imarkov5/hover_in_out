@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Hover In Out</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        #container{
+            width: 1200px;
+            margin: 0px auto;
+            padding-top: 40px;
+        }
+        img{
+            width: 23%;
+            padding-left: 5px;
+        }
+
+    </style>
+    <script>
+//method 1 the shortest one without using temp
+// $(document).ready(function() {
+//             $('img').hover(function(){
+//                 var current_img = $(this).attr('src');
+                
+//                 var alt_img = $(this).attr('alt-src');
+                
+//                 $(this).attr('src',alt_img);
+//                 $(this).attr('alt-src',current_img);})
+// })
+
+
+
+
+//method 2 using 2 functions:
+//         $(document).ready(function(){
+
+// var temp = [];
+
+// $('img').hover(
+//     function(){
+//         $(this).attr('temp', $(this).attr('src'));
+//         $(this).attr('src', $(this).attr('alt-src'));
+//     }, function(){
+//         $(this).attr('alt-src', $(this).attr('temp'));
+//     }
+// );
+// });
+
+
+
+
+        //from solution file
+//         jQuery.fn.swap = function(){}
+
+//         $(document).ready(function(){
+//         $('img').hover(function(){
+//         var temp = $(this).attr('src');
+//         $(this).attr('src', $(this).attr('alt-src'));
+//         $(this).attr('alt-src', temp);
+//     });
+// });	
+
+
+
+    $(document).ready(function(){
+        
+        $('img').hover(
+            function(){
+                var temp = $(this).attr('src');
+                $(this).attr('src', $(this).attr('alt-src'));
+                $(this).attr('alt-src', temp);
+            });
+        });
+     </script>
+
+    
+</head>
+<body>
+    <div id="container">
+        <img src="flower1.jpeg" alt-src="flower2.jpg" alt="flowers">     
+        <img src="flower1.jpeg" alt-src="flower2.jpg" alt="flowers">
+        <img src="flower1.jpeg" alt-src="flower2.jpg" alt="flowers">
+        <img src="flower1.jpeg" alt-src="flower2.jpg" alt="flowers"> 
+        <img src="." alt="">
+    </div>
+</body>
+</html>
